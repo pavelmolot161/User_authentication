@@ -1,0 +1,40 @@
+
+{% extends "fourth_task/menu.html" %}    <!-- extends Указывает от какого шаблона будет наследоватся, или кто родительский класс-->
+
+<html lang="en">
+<head>
+
+</head>
+</html>
+
+<title>{% block title %}Games{% endblock %}</title>
+{% block pagename %}                    <!--Заголовок страницы-->
+    <h2>Игры</h2>
+    {{ block.super }}                   <!--Переносит инфу из блока pagename родительского класса-->
+{% endblock %}
+
+{% block menu %}
+    {{ block.super }}                   <!--Переносит инфу из блока menu родительского класса-->
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}                   <!--Переносит инфу из блока content родительского класса-->
+    {% for game in games %}
+        <div>
+            <h4>{{ game.title }} | {{ game.description }}. Стоимость: {{ game.cost }}</h4>
+            <button>Купить</button>     <!-- Кнопка для покупки игры -->
+        </div>
+    {% endfor %}
+<!--    {% for game in games %}-->
+<!--    <li>-->
+<!--        {{ game }}-->
+<!--        <button type="button">Купить</button>-->
+<!--    </li>-->
+<!--    {% endfor %}-->
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}                   <!--Переносит инфу из блока footer родительского класса-->
+{% endblock %}
+
+

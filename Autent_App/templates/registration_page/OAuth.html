@@ -1,0 +1,33 @@
+{% extends "fourth_task/menu.html" %}    <!-- extends Указывает от какого шаблона будет наследоватся, или кто родительский класс-->
+
+<html lang="en">
+<head>
+
+</head>
+</html>
+<title>{% block title %}Platform{% endblock %}</title>
+{% block pagename %}                   <!--Заголовок страницы-->
+    <h1>Главная страница</h1>
+    {{ block.super }}                  <!--Переносит инфу из блока pagename родительского класса-->
+{% endblock %}
+
+
+
+{% block menu %}
+    {{ block.super }}                  <!--Переносит инфу из блока menu родительского класса-->
+{% endblock %}
+
+
+{% block content %}
+    {{ block.super }}                  <!--Переносит инфу из блока content родительского класса-->
+{% endblock %}
+
+                                       <!--Информация о сайте-->
+{% block footer %}
+    {{ block.super }}                  <!--Переносит инфу из блока footer родительского класса-->
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,116 @@
+<!-- ### - 22.12.24 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Page</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+
+        {% if info.error %}  <!-- Отображение сообщения об ошибке -->
+            <div style="color: red;">{{ info.error }}</div>
+        {% endif %}
+
+        <label for="username">Введите логин:</label>
+        <input type="text" id="username" name="username" maxlength="30" required>
+        {% if info.form.username.errors %}                                      <!-- Отображение ошибок для логина -->
+            <div class="error">{{ info.form.username.errors }}</div>
+        {% endif %}
+
+        <label for="password">Введите пароль:</label>
+        <input type="password" id="password" name="password" minlength="8" required>
+        {% if info.form.password.errors %}                                      <!-- Отображение ошибок для пароля -->
+            <div class="error">{{ info.form.password.errors }}</div>
+        {% endif %}
+
+        <label for="repeat_password">Повторите пароль:</label>
+        <input type="password" id="repeat_password" name="repeat_password" minlength="8" required>
+        {% if info.form.repeat_password.errors %}  <!-- Отображение ошибок для повторного пароля -->
+            <div class="error">{{ info.form.repeat_password.errors }}</div>
+        {% endif %}
+
+        <label for="age">Введите свой возраст:</label>
+        <input type="number" id="age" name="age" max="999" required>
+        {% if info.form.age.errors %}  <!-- Отображение ошибок для возраста -->
+            <div class="error">{{ info.form.age.errors }}</div>
+        {% endif %}
+
+        <button type="submit">Отправить</button>
+    </form>
+</body>
+</html>
+
+<!--Блок <meta name="viewport"> отвечает за настройку отображения веб-страницы на мобильных устройствах.
+Он позволяет контролировать, как страница будет масштабироваться и отображаться на экранах различных размеров.
+Давайте разберем его атрибуты:
+
+width=device-width: Устанавливает ширину области просмотра (viewport) равной ширине экрана устройства.
+Это позволяет странице адаптироваться к различным размерам экранов.
+
+user-scalable=no: Запрещает пользователю изменять масштаб страницы (например, с помощью жестов "щипка"
+на сенсорных экранах).
+
+initial-scale=1.8: Устанавливает начальный масштаб страницы на 1.8, что означает, что страница будет увеличена
+на 80% по сравнению с ее естественным размером.
+
+maximum-scale=1.0: Устанавливает максимальный масштаб страницы на 1.0, что означает, что пользователь не сможет
+увеличить страницу выше ее естественного размера.
+
+minimum-scale=0.1: Устанавливает минимальный масштаб страницы на 0.1, что позволяет уменьшить страницу до 10% от
+ее естественного размера.-->
+
+<!--копия для сохранения-->
+<!--<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Page</title>
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            <ul>
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <label for="username">Введите логин:</label>
+        <input type="text" id="username" name="username" maxlength="30" required>
+
+        <label for="password">Введите пароль:</label>
+        <input type="password" id="password" name="password" minlength="8" required>
+
+        <label for="repeat_password">Повторите пароль:</label>
+        <input type="password" id="repeat_password" name="repeat_password" minlength="8" required>
+
+        <label for="age">Введите свой возраст:</label>
+        <input type="number" id="age" name="age" max="999" required>
+
+        <button type="submit">Отправить</button>
+    </form>
+    {% if info.error %}
+        <div style="color: red;">{{ info.error }}</div>
+    {% endif %}
+</body>
+</html>
+-->

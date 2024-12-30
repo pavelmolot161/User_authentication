@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Menu{% endblock %}</title>
+    <style>
+                                    /* Добавляем стиль для ссылок */
+        a {
+            display: block;         /* Изменяем отображение на блочный элемент */
+            margin: 5px 0;          /* Добавляем отступы между ссылками */
+        }
+                                    /* Новый стиль для кнопки */
+        .button_1-container {
+            position: fixed;        /* Фиксированное позиционирование */
+            bottom: 10px;           /* Отступ от нижней границы */
+            left: 10px;             /* Отступ от левой границы */
+        }
+
+        .button_2-container {
+            position: fixed;        /* Фиксированное позиционирование */
+            bottom: 10px;           /* Отступ от нижней границы */
+            left: 160px;             /* Отступ от левой границы */
+        }
+
+        .button_3-container {
+            position: fixed;        /* Фиксированное позиционирование */
+            bottom: 10px;           /* Отступ от нижней границы */
+            left: 325px;             /* Отступ от левой границы */
+        }
+
+        .small-button {
+            padding: 1px 3px;      /* Уменьшаем размеры кнопки */
+            font-size: 10px;        /* Уменьшаем размер шрифта */
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        {% block pagename %}                        <!--Заголовок страницы-->
+            <h1> </h1>
+        {% endblock %}
+    </header>
+
+    <nav>
+        {% block menu %}
+        <ul>
+            <li><a href="{% url 'platform_task' %}">Главная</a></li>
+            <li><a href="{% url 'games_task' %}">Магазин</a></li>
+            <li><a href="{% url 'cart_task' %}">Корзина</a></li>
+        </ul>
+        {% endblock %}
+    </nav>
+
+    {% block content %}
+        <h6> Сюда размещаем контент </h6>
+    {% endblock content %}
+
+
+    <footer>                                                                  <!--Информация о сайте-->
+        {% block footer %}
+            <p> 2023 Pavel Molot </p>
+        {% endblock %}
+    </footer>
+
+
+    <!--########################################################################################################-->
+
+    <!--Вносим изменения 23.12.24-->
+    <div class="button_1-container">                 <!--Кнопка внизу для навигации, не по заданию-->
+        <a href="{% url 'games_task' %}">
+            <button class="small-button"><h4>На страничку c играми</h4></button>
+        </a>
+    </div>
+
+     <div class="button_2-container">                <!--Кнопка внизу для навигации, не по заданию-->
+        <a href="{% url 'cart_task' %}">
+            <button class="small-button"><h4>На страничку c корзиной</h4></button>
+        </a>
+    </div>
+
+         <div class="button_3-container">            <!--Кнопка внизу для навигации, не по заданию-->
+        <a href="{% url 'platform_task' %}">
+            <button class="small-button"><h4>На Главную страничку</h4></button>
+        </a>
+    </div>
+</body>
+</html>

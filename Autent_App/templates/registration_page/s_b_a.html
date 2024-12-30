@@ -1,0 +1,31 @@
+{% extends "fourth_task/menu.html" %}    <!-- extends Указывает от какого шаблона будет наследоватся, или кто родительский класс-->
+
+<html lang="en">
+<head>
+
+</head>
+</html>
+<title>{% block title %}Cart{% endblock %}</title>
+{% block pagename %}                    <!--Заголовок страницы-->
+    <h2>Корзина</h2>
+    {{ block.super }}                   <!--Переносит инфу из блока pagename родительского класса-->
+{% endblock %}
+
+
+
+{% block menu %}
+    {{ block.super }}                   <!--Переносит инфу из блока menu родительского класса-->
+{% endblock %}
+
+
+{% block content %}
+    {{ block.super }}                   <!--Переносит инфу из блока content родительского класса-->
+{% endblock %}
+
+                                        <!--Информация о сайте-->
+{% block footer %}
+    <h3>Извините, ваша корзина пуста</h3>
+    {{ block.super }}                   <!--Переносит инфу из блока footer родительского класса-->
+{% endblock %}
+
+
